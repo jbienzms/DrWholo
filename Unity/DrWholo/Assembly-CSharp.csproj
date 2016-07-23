@@ -215,6 +215,9 @@
      <Compile Include="Assets\HoloToolkit\Utilities\Scripts\TextToSpeechManager.cs" />
      <Compile Include="Assets\HoloToolkit\Utilities\Scripts\VectorExtensions.cs" />
      <Compile Include="Assets\HoloToolkit\Utilities\Tests\TextToSpeechManagerTest.cs" />
+     <Compile Include="Assets\Scripts\Layout\Edge.cs" />
+     <Compile Include="Assets\Scripts\Layout\LayoutRenderer.cs" />
+     <Compile Include="Assets\Scripts\Layout\Node.cs" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurable.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurable.cginc" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurableTransparent.shader" />

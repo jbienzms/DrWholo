@@ -345,11 +345,11 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   metroPackageName: DrWholo
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: C:\Users\jbienz\Code\Microsoft\DrWholo\Unity\DrWholo\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 80f431e3a703d301
   metroApplicationDescription: DrWholo
   wsaImages: {}
   metroTileShortName: 
