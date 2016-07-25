@@ -63,6 +63,7 @@
      <Compile Include="Assets\HoloToolkit\Utilities\Editor\LayerMaskExtensions.cs" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurable.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurable.cginc" />
+     <None Include="Assets\EpForceDirectedGraph\README.txt" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurableTransparent.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\LambertianConfigurable.cginc" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurable.shader" />

@@ -345,7 +345,7 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   metroPackageName: DrWholo
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: C:\Users\jbienz\Code\Microsoft\DrWholo\Unity\DrWholo\Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
