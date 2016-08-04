@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using UnityPlayer;
+using DrWholoLib;
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
 namespace DrWholo
@@ -93,7 +94,7 @@ namespace DrWholo
 			InitializeUnity(args.Arguments);
 		}
 
-		private void InitializeUnity(string args)
+		private async void InitializeUnity(string args)
 		{
 #if UNITY_WP_8_1 || UNITY_UWP
 			ApplicationView.GetForCurrentView().SuppressSystemOverlays = true;
@@ -121,7 +122,29 @@ namespace DrWholo
 				Window.Current.Activate();
 #endif
 
-				rootFrame.Navigate(typeof(MainPage));
+                // Create the service using our own Client ID
+                var drWholoService = new DrWholoService(App.Current.Resources["ida:ClientID"].ToString());
+                DrWholoService.Instance = drWholoService;
+
+                // Attempt to sign in but not interactive
+                drWholoService.AllowInteractiveSignIn = false;
+
+                try
+                {
+                    // Navigate to platform-specific page
+                    if (Adept.Environment.IsHolographic)
+                    {
+                        rootFrame.Navigate(typeof(MainPage));
+                    }
+                    else
+                    {
+                        rootFrame.Navigate(typeof(MainXamPage));
+                    }
+                }
+                catch
+                {
+                    rootFrame.Navigate(typeof(AuthPage));
+                }
 			}
 
 			Window.Current.Activate();

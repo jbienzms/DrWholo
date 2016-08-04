@@ -152,10 +152,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Page Include="AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -171,10 +178,17 @@
     </Content>
     <Content Include="Assets\Wide310x150Logo.scale-200.png">
     </Content>
+    <Compile Include="MainXamPage.xaml.cs">
+      <DependentUpon>MainXamPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
     </Compile>
     <Content Include="Properties\Default.rd.xml">
     </Content>
+    <Page Include="MainXamPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Reference Include="UnityEngine">
       <HintPath>.\Unprocessed\UnityEngine.dll</HintPath>
     </Reference>
@@ -206,6 +220,10 @@
     <None Include="WSATestCertificate.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lib\DrWholoLib\DrWholoLib.csproj">
+      <Project>{e7438fa2-d8b4-4ba5-a8b1-cfa40381c086}</Project>
+      <Name>DrWholoLib</Name>
+    </ProjectReference>
     <ProjectReference Include="C:/Users/jbienz/Code/Microsoft/DrWholo/Unity/DrWholo/Assets\..\UWP\Assembly-CSharp\Assembly-CSharp.csproj">
       <Project>{FBA57953-C0C3-F9D8-E86A-9F7C063B5FDE}</Project>
       <Name>Assembly-CSharp</Name>

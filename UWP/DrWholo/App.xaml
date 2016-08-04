@@ -4,4 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DrWholo">
 
+    <Application.Resources>
+        <!-- Add your client id here. -->
+        <x:String x:Key="ida:ClientID">34e44d87-adfc-4fe9-b86b-468048daa7bf</x:String>
+    </Application.Resources>
+
 </Application>
