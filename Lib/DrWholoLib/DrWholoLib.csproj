@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entites\Profile.cs" />
     <Compile Include="Services\DrWholoService.cs" />
     <Compile Include="GraphExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

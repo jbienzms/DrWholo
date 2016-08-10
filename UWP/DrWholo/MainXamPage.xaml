@@ -1,13 +1,20 @@
 ﻿<Page
-    x:Class="DrWholo.MainXamPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DrWholo"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:DrWholoLib="using:DrWholoLib"
+    x:Class="DrWholo.MainXamPage"
     mc:Ignorable="d" RequestedTheme="Light">
 
+    <Page.DataContext>
+        <DrWholoLib:MainViewModel/>
+    </Page.DataContext>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Xaml version goes here" />
+        <Grid x:Name="UserInfo" Width="512" Height="512">
+            <TextBlock x:Name="NameBlock" Text="{Binding UserGraph.DisplayName}" />
+        </Grid>
     </Grid>
 </Page>

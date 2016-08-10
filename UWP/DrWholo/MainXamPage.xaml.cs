@@ -26,16 +26,21 @@ namespace DrWholo
     public sealed partial class MainXamPage : Page
     {
         private DrWholoService service;
+        private MainViewModel vm;
 
         public MainXamPage()
         {
+            // Initialize page
             this.InitializeComponent();
-            this.Loaded += MainXamPage_Loaded;
+
+            // Get ViewModel
+            vm = DataContext as MainViewModel;
 
             // Get services
             service = DrWholoService.Instance;
 
             // Subscribe to events
+            this.Loaded += MainXamPage_Loaded;
             service.SignedIn += Service_SignedIn;
         }
 
@@ -56,11 +61,6 @@ namespace DrWholo
             }
         }
 
-        private async Task LoadDataAsync()
-        {
-
-        }
-
         private async void MainXamPage_Loaded(object sender, RoutedEventArgs e)
         {
             await AuthenticateAsync();
@@ -68,7 +68,7 @@ namespace DrWholo
 
         private async void Service_SignedIn(object sender, EventArgs e)
         {
-            await LoadDataAsync();
+            await vm.LoadDataAsync();
         }
     }
 }

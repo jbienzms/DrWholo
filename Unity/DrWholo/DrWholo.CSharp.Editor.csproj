@@ -16,7 +16,7 @@
     <CompilerResponseFile>Assets\gmcs.rsp</CompilerResponseFile>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>WSAPlayer:21</UnityBuildTarget>
-    <UnityVersion>5.4.0b24-HTP</UnityVersion>
+    <UnityVersion>5.4.0f3-HTP</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
@@ -106,8 +106,14 @@
     <Reference Include="Mono.Cecil">
       <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
     </Reference>
-    <Reference Include="DrWholoLib">
-      <HintPath>Assets\Plugins\DrWholoLib.dll</HintPath>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>Assets\Plugins\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>Assets\Plugins\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform">
+      <HintPath>Assets\Plugins\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

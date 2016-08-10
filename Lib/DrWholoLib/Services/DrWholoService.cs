@@ -190,6 +190,11 @@ namespace DrWholoLib
                 allowInteractiveSignIn = value;
             }
         }
+
+        /// <summary>
+        /// Gets the <see cref="GraphServiceClient"/> managed by the service.
+        /// </summary>
+        public GraphServiceClient GraphClient => graphClient;
         #endregion // Public Properties
 
         #region Public Events

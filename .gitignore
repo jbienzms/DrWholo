@@ -17,6 +17,12 @@ Players/
 # Unity3D Exported Data files
 Data/
 
+# NuGet Binaries
+GalaSoft*.dll
+
+# Library Binaries
+DrWholoLib*.dll
+
 # HoloLens Binaries
 SharingClient.dll
 PlaneFinding.dll

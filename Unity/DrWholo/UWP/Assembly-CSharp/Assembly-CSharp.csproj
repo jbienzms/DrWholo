@@ -142,12 +142,20 @@
       <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\WinRTLegacy.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform">
+      <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\UnityEngine.HoloLens.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\GalaSoft.MvvmLight.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Networking">
@@ -160,6 +168,10 @@
     </Reference>
     <Reference Include="DrWholoLib">
       <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\DrWholoLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\GalaSoft.MvvmLight.Extras.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

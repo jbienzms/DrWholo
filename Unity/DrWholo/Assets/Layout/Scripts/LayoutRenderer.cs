@@ -33,11 +33,11 @@ namespace DrWholo.Layout
         #region Inspector Variables
         [SerializeField]
         [Tooltip("The prefab to instantiate for each edge.")]
-        private GameObject edgePrefab;
+        public GameObject edgePrefab;
 
         [SerializeField]
         [Tooltip("The prefab to instantiate for each node.")]
-        private GameObject nodePrefab;
+        public GameObject nodePrefab;
 
         [SerializeField]
         [Tooltip("The parent that the graph will be a child of.")]
@@ -78,7 +78,16 @@ namespace DrWholo.Layout
         private NodeBehaviour CreateUNode(Node node)
         {
             // Create prefab
-            var no = Instantiate(nodePrefab);
+            GameObject no = null;
+
+            if (nodePrefab == null)
+            {
+                no = Resources.Load<GameObject>("NodePrefab");
+            }
+            else
+            {
+                no = Instantiate(nodePrefab);
+            }
 
             // Create behavior
             var nb = no.AddComponent<NodeBehaviour>();
