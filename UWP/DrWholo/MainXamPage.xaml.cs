@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Adept;
+using DrWholoLib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +25,50 @@ namespace DrWholo
     /// </summary>
     public sealed partial class MainXamPage : Page
     {
+        private DrWholoService service;
+
         public MainXamPage()
         {
             this.InitializeComponent();
+            this.Loaded += MainXamPage_Loaded;
+
+            // Get services
+            service = DrWholoService.Instance;
+
+            // Subscribe to events
+            service.SignedIn += Service_SignedIn;
+        }
+
+
+        private async Task AuthenticateAsync()
+        {
+            // Authenticate
+            try
+            {
+                service.AllowInteractiveSignIn = true;
+                await service.SignInAync();
+                // service.SignOut();
+            }
+            catch (Exception)
+            {
+                // Switch to Auth view (replacing current view)
+                await AppViewManager.Views["Auth"].SwitchAsync();
+            }
+        }
+
+        private async Task LoadDataAsync()
+        {
+
+        }
+
+        private async void MainXamPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            await AuthenticateAsync();
+        }
+
+        private async void Service_SignedIn(object sender, EventArgs e)
+        {
+            await LoadDataAsync();
         }
     }
 }

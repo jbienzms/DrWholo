@@ -4,8 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrWholo", "DrWholo\DrWholo.csproj", "{13A45C13-3265-47B8-BC48-A553B569DF55}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7438FA2-D8B4-4BA5-A8B1-CFA40381C086} = {E7438FA2-D8B4-4BA5-A8B1-CFA40381C086}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "C:\Users\jbienz\Code\Microsoft\DrWholo\Unity\DrWholo\UWP\Assembly-CSharp\Assembly-CSharp.csproj", "{FBA57953-C0C3-F9D8-E86A-9F7C063B5FDE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7438FA2-D8B4-4BA5-A8B1-CFA40381C086} = {E7438FA2-D8B4-4BA5-A8B1-CFA40381C086}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "C:\Users\jbienz\Code\Microsoft\DrWholo\Unity\DrWholo\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj", "{194D914D-0664-444E-B663-4D0F1C80AF68}"
 EndProject

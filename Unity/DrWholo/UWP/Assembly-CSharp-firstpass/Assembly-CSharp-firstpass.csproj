@@ -155,6 +155,10 @@
       <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\UnityEngine.VR.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DrWholoLib">
+      <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\DrWholoLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Assets\Plugins\**\*.cs" Exclude="..\..\Assets\Plugins\**\Editor\**\*.cs">

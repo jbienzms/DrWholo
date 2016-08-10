@@ -2,6 +2,12 @@
 using System.Collections;
 using DrWholo.Layout;
 using EpForceDirectedGraph.cs;
+using Adept;
+
+#if WINDOWS_UWP
+using DrWholoLib;
+using System.Threading.Tasks;
+#endif
 
 namespace DrWholo
 {
@@ -37,11 +43,38 @@ namespace DrWholo
             layoutRenderer.ForceDirected = fdg;
         }
 
+        #if WINDOWS_UWP
+        private async Task LoadDataAsync()
+        {
+            var service = DrWholoService.Instance;
+
+            // Authenticate
+            try
+            {
+                service.AllowInteractiveSignIn = false;
+                await service.SignInAync();
+            }
+            catch
+            {
+                // Switch to Auth view (replacing current view)
+                await AppViewManager.Views["Auth"].SwitchAsync();
+            }
+        }
+        #endif
+
+        private void LoadRealGraph()
+        {
+            #if WINDOWS_UWP
+            var t = LoadDataAsync();
+            #endif
+        }
+
         #region Behaviour Overrides
         // Use this for initialization
         void Start()
         {
             LoadDemoGraph();
+            LoadRealGraph();
         }
 
         //// Update is called once per frame

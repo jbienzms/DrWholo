@@ -157,6 +157,7 @@ namespace DrWholoLib
         {
             EnsureGraphClient();
             await graphClient.Me.Request().GetAsync();
+            if (SignedIn != null) { SignedIn(this, EventArgs.Empty); }
         }
 
         /// <summary>
@@ -170,6 +171,7 @@ namespace DrWholoLib
             }
             graphClient = null;
             userToken = null;
+            if (SignedOut != null) { SignedOut(this, EventArgs.Empty); }
         }
         #endregion // Public Methods
 
@@ -189,6 +191,18 @@ namespace DrWholoLib
             }
         }
         #endregion // Public Properties
+
+        #region Public Events
+        /// <summary>
+        /// Occurs when the user has signed in.
+        /// </summary>
+        public event EventHandler SignedIn;
+
+        /// <summary>
+        /// Occurs when the user has signed out.
+        /// </summary>
+        public event EventHandler SignedOut;
+        #endregion // Public Events
         #endregion // Instance Version
     }
 }

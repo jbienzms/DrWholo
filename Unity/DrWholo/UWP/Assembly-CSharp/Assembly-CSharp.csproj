@@ -158,6 +158,10 @@
       <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\UnityEngine.VR.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DrWholoLib">
+      <HintPath>$(SolutionDir)$(SolutionName)\Unprocessed\DrWholoLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Assets\**\*.cs" Exclude="..\..\Assets\**\Editor\**\*.cs;..\..\Assets\Plugins\**\*.cs;..\..\Assets\Standard Assets\**\*.cs;..\..\Assets\Standard Assets (Mobile)\**\*.cs;..\..\Assets\Pro Standard Assets\**\*.cs">

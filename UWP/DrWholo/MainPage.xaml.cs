@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 using UnityPlayer;
+using Windows.UI.ViewManagement;
 
 namespace DrWholo
 {
@@ -53,7 +54,7 @@ namespace DrWholo
 			string deviceFamily = Windows.System.Profile.AnalyticsInfo.VersionInfo.DeviceFamily;
 			isWindowsHolographic = String.Compare("Windows.Holographic", deviceFamily) == 0;
 #endif
-
+            ApplicationView.GetForCurrentView();
 			if (isWindowsHolographic)
 			{
 				appCallbacks.InitializeViewManager();

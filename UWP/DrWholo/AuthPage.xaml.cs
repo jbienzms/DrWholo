@@ -1,4 +1,5 @@
-﻿using DrWholoLib;
+﻿using Adept;
+using DrWholoLib;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,33 +34,22 @@ namespace DrWholo
             drWholoService = DrWholoService.Instance;
         }
 
-        private async Task DoSignInAsync()
+        public async Task DoSignInAsync()
         {
             SignInButton.IsEnabled = false;
             try
             {
                 drWholoService.AllowInteractiveSignIn = true;
                 await drWholoService.SignInAync();
-                if (Adept.Environment.IsHolographic)
-                {
-                    Frame.Navigate(typeof(MainPage));
-                }
-                else
-                {
-                    Frame.Navigate(typeof(MainXamPage));
-                }
+
+                // Switch back to Main view (replacing current view)
+                await AppViewManager.Views["Main"].SwitchAsync();
             }
             catch (Exception ex)
             {
                 await new MessageDialog(ex.Message).ShowAsync();
                 SignInButton.IsEnabled = true;
             }
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            var t = DoSignInAsync();
         }
 
         private async void SignInButton_Click(object sender, RoutedEventArgs e)

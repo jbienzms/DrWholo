@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using UnityPlayer;
 using DrWholoLib;
+using Adept;
+using System.Threading.Tasks;
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
 namespace DrWholo
@@ -29,7 +31,7 @@ namespace DrWholo
 	{
 		private AppCallbacks appCallbacks;
 		public SplashScreen splashScreen;
-		
+
 		/// <summary>
 		/// Initializes the singleton application object.  This is the first line of authored code
 		/// executed, and as such is the logical equivalent of main() or WinMain().
@@ -39,6 +41,15 @@ namespace DrWholo
 			this.InitializeComponent();
 			appCallbacks = new AppCallbacks();
 		}
+
+        private async Task CreateViewsAsync()
+        {
+            // Get a ViewInfo from current dispatcher (Xaml or Unity)
+            await AppViewManager.CreateFromCurrentDispatcherAsync("Main");
+
+            // Create a new view for the auth flow (always Xaml)
+            await AppViewManager.CreateNewAsync("Auth", typeof(AuthPage));
+        }
 
 		/// <summary>
 		/// Invoked when application is launched through protocol.
@@ -126,25 +137,31 @@ namespace DrWholo
                 var drWholoService = new DrWholoService(App.Current.Resources["ida:ClientID"].ToString());
                 DrWholoService.Instance = drWholoService;
 
+                // Create views
+                await CreateViewsAsync();
+
+                // Navigate to platform-specific page
+                if (Adept.Environment.IsHolographic)
+                {
+                    rootFrame.Navigate(typeof(MainPage));
+                }
+                else
+                {
+                    rootFrame.Navigate(typeof(MainXamPage));
+                }
+
+                /*
                 // Attempt to sign in but not interactive
                 drWholoService.AllowInteractiveSignIn = false;
 
                 try
                 {
-                    // Navigate to platform-specific page
-                    if (Adept.Environment.IsHolographic)
-                    {
-                        rootFrame.Navigate(typeof(MainPage));
-                    }
-                    else
-                    {
-                        rootFrame.Navigate(typeof(MainXamPage));
-                    }
                 }
                 catch
                 {
                     rootFrame.Navigate(typeof(AuthPage));
                 }
+                */
 			}
 
 			Window.Current.Activate();
@@ -162,5 +179,5 @@ namespace DrWholo
 			}
 		}
 #endif
-	}
+    }
 }

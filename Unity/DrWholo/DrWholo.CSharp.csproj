@@ -70,6 +70,9 @@
     <Reference Include="Mono.Cecil">
       <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
     </Reference>
+    <Reference Include="DrWholoLib">
+      <HintPath>Assets\Plugins\DrWholoLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Adept\Binding\Scripts\BindingBase.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="Assets\Adept\Observable\Scripts\NotifyCollectionChangedEventArgs.cs" />
     <Compile Include="Assets\Adept\Observable\Scripts\ObservableCollection.cs" />
     <Compile Include="Assets\Adept\Observable\Scripts\ObservableObject.cs" />
+    <Compile Include="Assets\Adept\Utilities\Scripts\AppViewManager.cs" />
     <Compile Include="Assets\Adept\Utilities\Scripts\CopyExtensions.cs" />
     <Compile Include="Assets\Adept\Utilities\Scripts\Environment.cs" />
     <Compile Include="Assets\Adept\Utilities\Scripts\ReflectionExtensions.cs" />
@@ -134,6 +138,9 @@
     <Compile Include="Assets\HoloToolkit\Input\Scripts\HandGuidance.cs" />
     <Compile Include="Assets\HoloToolkit\Input\Scripts\HandsManager.cs" />
     <Compile Include="Assets\HoloToolkit\Input\Scripts\KeywordManager.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\OnGazeEnterEvent.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\OnGazeLeaveEvent.cs" />
+    <Compile Include="Assets\HoloToolkit\Input\Scripts\OnSelectEvent.cs" />
     <Compile Include="Assets\HoloToolkit\Input\Scripts\SelectedObjectMessageSender.cs" />
     <Compile Include="Assets\HoloToolkit\Input\Tests\Scripts\FocusedObjectMessageReceiver.cs" />
     <Compile Include="Assets\HoloToolkit\Input\Tests\Scripts\ScaleObjectMessageReceiver.cs" />
@@ -219,26 +226,23 @@
     <Compile Include="Assets\HoloToolkit\Sharing\Tests\CustomMessages.cs" />
     <Compile Include="Assets\HoloToolkit\Sharing\Tests\ImportExportAnchorManager.cs" />
     <Compile Include="Assets\HoloToolkit\Sharing\Tests\RemoteHeadManager.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\FileSurfaceObserver.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\MeshSaver.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\PlaneFinding.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMappingManager.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMeshSource.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMeshTarget.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoveSurfaceVertices.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SimpleMeshSerializer.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingComponent\SpatialMappingCollider.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingComponent\SpatialMappingRenderer.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingComponent\Support\SMBaseAbstract.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\ObjectSurfaceObserver.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\FileSurfaceObserver.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\MeshSaver.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\RemoteMappingManager.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\RemoteMeshSource.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\RemoteMeshTarget.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\RemoteMapping\SimpleMeshSerializer.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingManager.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingObserver.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingSource.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SurfaceMeshesToPlanes.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SurfacePlane.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialProcessing\PlaneFinding.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialProcessing\RemoveSurfaceVertices.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialProcessing\SurfaceMeshesToPlanes.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialProcessing\SurfacePlane.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialMapping\Scripts\TapToPlace.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Tests\PlaneFindingTest.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Tests\SpatialMappingComponent\DropCube.cs" />
-    <Compile Include="Assets\HoloToolkit\SpatialMapping\Tests\SpatialProcessingTest.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Tests\Support\PlaneFindingTest.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialMapping\Tests\Support\SpatialProcessingTest.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\ActiveEvent.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioClip.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialSound\Scripts\UAudioManager\AudioContainer.cs" />
@@ -259,9 +263,13 @@
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\NearPlaneFade.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\SimpleTagalong.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Singleton.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Scripts\StabilizationPlaneModifier.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Tagalong.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\TextToSpeechManager.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\VectorExtensions.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\GestureResponder.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroup.cs" />
+    <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroupPicker.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\TextToSpeechManagerTest.cs" />
     <Compile Include="Assets\Layout\Scripts\EdgeBehaviour.cs" />
     <Compile Include="Assets\Layout\Scripts\LayoutRenderer.cs" />
@@ -286,6 +294,7 @@
     <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurable.cginc" />
     <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurable.shader" />
     <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurableTransparent.shader" />
+    <None Include="Assets\HoloToolkit\Utilities\Shaders\WindowOcclusion.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
